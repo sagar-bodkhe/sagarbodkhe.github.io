@@ -1,0 +1,210 @@
+/* ============================================
+   Responsive Design - Mobile First
+   ============================================ */
+
+/* Tablet and Below (768px) */
+@media (max-width: 768px) {
+    :root {
+        --container-padding: var(--space-4);
+        --font-size-5xl: 2.5rem;
+        --font-size-4xl: 2rem;
+        --font-size-3xl: 1.75rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: var(--space-6);
+        border-top: 1px solid var(--border-color);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+        z-index: var(--z-dropdown);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: var(--space-16) 0;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: var(--space-4);
+        --space-16: var(--space-12);
+        --space-24: var(--space-16);
+    }
+
+    .container {
+        padding: 0 var(--space-4);
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-description {
+        font-size: var(--font-size-base);
+    }
+
+    .about-description {
+        font-size: var(--font-size-base);
+    }
+
+    .skill-card,
+    .project-card {
+        padding: var(--space-6);
+    }
+
+    .stat-item {
+        padding: var(--space-6);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-4xl);
+    }
+
+    .orb-1 {
+        width: 400px;
+        height: 400px;
+    }
+
+    .orb-2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .orb-3 {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Large Screens (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Large Screens (1600px+) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-16) 0;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .gradient-orb {
+        filter: blur(120px);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .gradient-orb {
+        animation: none;
+    }
+
+    .typing-text {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support (if needed in future) */
+@media (prefers-color-scheme: light) {
+    /* Light mode styles can be added here if needed */
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .hero-background,
+    .scroll-indicator,
+    .contact-form,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section-title {
+        -webkit-text-fill-color: black;
+        color: black;
+    }
+}
